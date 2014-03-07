@@ -21,6 +21,10 @@
 		07D385D118C8121A0000ACF9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D385B318C8121A0000ACF9 /* UIKit.framework */; };
 		07D385D918C8121A0000ACF9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07D385D718C8121A0000ACF9 /* InfoPlist.strings */; };
 		07D385DB18C8121A0000ACF9 /* FindYourselfTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D385DA18C8121A0000ACF9 /* FindYourselfTests.m */; };
+		07D385E518C8122A0000ACF9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D385E418C8122A0000ACF9 /* CoreLocation.framework */; };
+		07D385E718C812370000ACF9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D385E618C812370000ACF9 /* MapKit.framework */; };
+		07D385EA18C844380000ACF9 /* LocationObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D385E918C844380000ACF9 /* LocationObject.m */; };
+		07D385EC18C84AC10000ACF9 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D385EB18C84AC10000ACF9 /* AddressBook.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,11 @@
 		07D385D618C8121A0000ACF9 /* FindYourselfTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FindYourselfTests-Info.plist"; sourceTree = "<group>"; };
 		07D385D818C8121A0000ACF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		07D385DA18C8121A0000ACF9 /* FindYourselfTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindYourselfTests.m; sourceTree = "<group>"; };
+		07D385E418C8122A0000ACF9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		07D385E618C812370000ACF9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		07D385E818C844380000ACF9 /* LocationObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationObject.h; sourceTree = "<group>"; };
+		07D385E918C844380000ACF9 /* LocationObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationObject.m; sourceTree = "<group>"; };
+		07D385EB18C84AC10000ACF9 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +69,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07D385EC18C84AC10000ACF9 /* AddressBook.framework in Frameworks */,
+				07D385E718C812370000ACF9 /* MapKit.framework in Frameworks */,
+				07D385E518C8122A0000ACF9 /* CoreLocation.framework in Frameworks */,
 				07D385B218C8121A0000ACF9 /* CoreGraphics.framework in Frameworks */,
 				07D385B418C8121A0000ACF9 /* UIKit.framework in Frameworks */,
 				07D385B018C8121A0000ACF9 /* Foundation.framework in Frameworks */,
@@ -101,6 +113,9 @@
 		07D385AE18C8121A0000ACF9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				07D385EB18C84AC10000ACF9 /* AddressBook.framework */,
+				07D385E618C812370000ACF9 /* MapKit.framework */,
+				07D385E418C8122A0000ACF9 /* CoreLocation.framework */,
 				07D385AF18C8121A0000ACF9 /* Foundation.framework */,
 				07D385B118C8121A0000ACF9 /* CoreGraphics.framework */,
 				07D385B318C8121A0000ACF9 /* UIKit.framework */,
@@ -117,6 +132,8 @@
 				07D385C118C8121A0000ACF9 /* Main.storyboard */,
 				07D385C418C8121A0000ACF9 /* ViewController.h */,
 				07D385C518C8121A0000ACF9 /* ViewController.m */,
+				07D385E818C844380000ACF9 /* LocationObject.h */,
+				07D385E918C844380000ACF9 /* LocationObject.m */,
 				07D385C718C8121A0000ACF9 /* Images.xcassets */,
 				07D385B618C8121A0000ACF9 /* Supporting Files */,
 			);
@@ -252,6 +269,7 @@
 				07D385C618C8121A0000ACF9 /* ViewController.m in Sources */,
 				07D385C018C8121A0000ACF9 /* AppDelegate.m in Sources */,
 				07D385BC18C8121A0000ACF9 /* main.m in Sources */,
+				07D385EA18C844380000ACF9 /* LocationObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
