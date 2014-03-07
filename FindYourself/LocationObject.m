@@ -11,21 +11,22 @@
 
 @interface LocationObject()
 
-@property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *address;
-@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *address;
+@property (nonatomic) CLLocationCoordinate2D coordinate;
 
 @end
 
 @implementation LocationObject
 
--(id)initWithName:(NSString *)name address:(NSString *)address coordinate:(CLLocationCoordinate2D)coordinate
+-(id)initWithName:(NSString *)name address:(NSString *)address coordinate:(CLLocationCoordinate2D)coordinate andImportance:(BOOL)important
 {
 	if (self = [super init])
 	{
 		self.name = name;
 		self.address = address;
 		self.coordinate = coordinate;
+		self.important = important;
 	}
 	return self;
 }

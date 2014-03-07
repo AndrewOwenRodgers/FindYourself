@@ -12,7 +12,9 @@
 @interface LocationObject : NSObject
 <MKAnnotation>
 
--(id)initWithName:(NSString *)name address:(NSString *)address coordinate:(CLLocationCoordinate2D)coordinate;
+@property (nonatomic) BOOL important;
+
+-(id)initWithName:(NSString *)name address:(NSString *)address coordinate:(CLLocationCoordinate2D)coordinate andImportance:(BOOL)important;
 -(MKMapItem *)mapItem;
 
 @end

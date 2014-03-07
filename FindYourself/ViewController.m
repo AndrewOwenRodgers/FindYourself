@@ -26,14 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-	CLLocationCoordinate2D coordinate;
-	coordinate.latitude = 47.6475;
-	coordinate.longitude = -122.34967;
-	LocationObject *giantTardisBridge = [[LocationObject alloc] initWithName:@"Giant TARDIS Bridge"
-																	 address:@"Bridge St. and Troll Ave"
-																  coordinate:coordinate];
-	[self plotNewPosition:giantTardisBridge];
+	[self addImportantPins];
 	
 	
 	self.locationManager = [[CLLocationManager alloc] init];
@@ -98,6 +91,16 @@
 	}
 	else
 	{
+		for (id <MKAnnotation> annotation in self.mapView.annotations)
+		{
+			if ([annotation isKindOfClass:[LocationObject class]])
+			{
+				if (![(LocationObject *)annotation important])
+				{
+					[self.mapView removeAnnotation:annotation];
+				}
+			}
+		}
 		[self search];
 	}
 }
@@ -136,7 +139,8 @@
 				NSString *address = [[addressArray[0] stringByAppendingString:@", "] stringByAppendingString:addressArray[1]];
 				LocationObject *object = [[LocationObject alloc] initWithName:mapItem.name
 																	  address:address
-																   coordinate:mapItem.placemark.coordinate];
+																   coordinate:mapItem.placemark.coordinate
+																andImportance:FALSE];
 				[self.mapView addAnnotation:object];
 			}
 		}
@@ -148,6 +152,30 @@
 	[findNemo startWithCompletionHandler:completionHandler];
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
+
+-(IBAction)foundTap:(UILongPressGestureRecognizer *)longPressAddTap
+{
+    CGPoint point = [longPressAddTap locationInView:self.mapView];
+    CLLocationCoordinate2D tapCoordinate = [self.mapView convertPoint:point toCoordinateFromView:self.view];
+	
+    LocationObject *newFlag = [[LocationObject alloc] initWithName:@"" address:@"" coordinate:tapCoordinate andImportance:TRUE];
+
+    [self.mapView addAnnotation:newFlag];
+}
+
+-(void)addImportantPins
+{
+	CLLocationCoordinate2D coordinate;
+	coordinate.latitude = 47.6475;
+	coordinate.longitude = -122.34967;
+	LocationObject *giantTardisBridge = [[LocationObject alloc] initWithName:@"Giant TARDIS Bridge"
+																	 address:@"Bridge St. and Troll Ave"
+																  coordinate:coordinate
+															   andImportance:TRUE];
+	[self plotNewPosition:giantTardisBridge];
+}
+
+#pragma mark -Text Field Stuff
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField //Slides the view up when the keyboard appears
 {
@@ -212,19 +240,6 @@
     [self.view setFrame:viewFrame];
     
     [UIView commitAnimations];
-}
-
--(IBAction)foundTap:(UITapGestureRecognizer *)recognizer
-{
-    CGPoint point = [recognizer locationInView:self.myMapView];
-	
-    CLLocationCoordinate2D tapPoint = [self.myMapView convertPoint:point toCoordinateFromView:self.view];
-	
-    MKPointAnnotation *point1 = [[MKPointAnnotation alloc] init];
-	
-    point1.coordinate = tapPoint;
-	
-    [self.myMapView addAnnotation:point1];
 }
 
 @end
